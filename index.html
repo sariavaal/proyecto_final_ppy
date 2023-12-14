@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Nutricional</title>
+    <script defer src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Calculadora Nutricional</h1>
+  <form onsubmit="return false">
+    <label for="totalPersonas">Cantidad de personas:</label>  
+    <input type="number" id="cantPersonas">
+    <label for="genero"id="genero"> Género</label>
+    <select name="generoPersona" id="generoPersona">
+    <option value="Hombre">Hombre</option>
+    <option value="Mujer">Mujer</option>
+    </select>
+    <label for="">Selecciona un alimento</label>
+    <select name="alimento" id="alimento">
+        <option value="0">Arroz blanco</option>
+        <option value="1">Frijol</option>
+        <option value="2">Fideos</option>
+    </select>
+    <input type="submit" value="Calcular Porciones" id="calcular">
+    <p id="msg"></p>
+    <div id="calorias" class="cuadro"></div>
+    <div id="grasas"class="cuadro"></div>
+    <div id="carbohidratos" class="cuadro"></div>
+    <div id="proteinas" class="cuadro"></div>
+  </form>
+  
+</body>
+</html>
