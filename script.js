@@ -1,8 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("calcular").addEventListener("click", () => {
         const cantPersonas = document.getElementById("cantPersonas").value;
-        const alimento = document.getElementById("alimento").value;
-        const genero = document.getElementById("generoPersona").value;
         calcularPorciones(cantPersonas);
         
     })
@@ -67,18 +65,9 @@ function calcularPorciones(cantPersonas) {
         //cada cien gramos de arroz tiene 130 kcal
         const caloriasPorCienGramos = propiedadesAlimenticias[document.getElementById("alimento").value].calorias;
         const caloriasTotales = (total / 100) * caloriasPorCienGramos;
-        return caloriasTotales.toFixed(2);
+        return caloriasTotales.toFixed();
 
      }
-
-     function calcularCaloriasHombres() {
-        
-
-     }
-
-     function calcularCaloriasMujeres() {
-     
-    }
 
 //funcion para alerts
 function mostrarMensaje(mensaje){
