@@ -28,7 +28,8 @@ var propiedadesAlimenticias = [
         grasas: 0.3,
         carbohidratos: 28.15,
         proteinas: 2.7,
-        gramosPorPersona: 100
+        gramosPorPersona: 100,
+        mlPorPorcion: 200
     },
     {//posicion 1 es frijol
         calorias: 138,
@@ -61,9 +62,11 @@ var actividadesFisicas = [
 function calcularPorciones(cantPersonas) {
     // 100 gramos de arroz crudo por persona
     const gramosPorPersona = propiedadesAlimenticias[document.getElementById("alimento").value].gramosPorPersona;
+    const mlPorPorcion = propiedadesAlimenticias[document.getElementById("alimento").value].mlPorPorcion;
     const total = gramosPorPersona * cantPersonas; 
+    const mlTotal = mlPorPorcion * cantPersonas;
     //mostrar resultado
-    mostrarMensaje(`El total para ${cantPersonas} personas es: ${total} gramos`);
+    mostrarMensaje(`El total para ${cantPersonas} personas es: ${total} gramos y la cantidad de agua para preparar es: ${mlTotal} ml.`);
     //valores para los cuadritos
     document.getElementById("calorias").textContent = "Calorias: " + calcularCalorias(cantPersonas) + emojis().caloriasEmoji;
     document.getElementById("grasas").textContent = "Grasas: " + calcularGrasas(total) + emojis().grasasEmoji;
