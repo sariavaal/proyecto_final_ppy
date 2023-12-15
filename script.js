@@ -29,21 +29,26 @@ var propiedadesAlimenticias = [
         carbohidratos: 28.15,
         proteinas: 2.7,
         gramosPorPersona: 100,
-        mlPorPorcion: 200
+        mlPorPorcion: 200,
+        gramosPorTaza: 200
     },
     {//posicion 1 es frijol
         calorias: 138,
         grasas: 0.5,
         carbohidratos: 25.15,
         proteinas: 9.05,
-        gramosPorPersona: 50
+        gramosPorPersona: 50,
+        mlPorPorcion: 500,
+        gramosPorTaza: 200
     },
     { //posicion 2 es fideos
         calorias: 253,
         grasas: 1.5,
         carbohidratos: 49.4,
         proteinas: 9.3,
-        gramosPorPersona: 100
+        gramosPorPersona: 100,
+        mlPorPorcion: 700,
+        gramosPorTaza: 160
     },
 ]
 
@@ -63,10 +68,13 @@ function calcularPorciones(cantPersonas) {
     // 100 gramos de arroz crudo por persona
     const gramosPorPersona = propiedadesAlimenticias[document.getElementById("alimento").value].gramosPorPersona;
     const mlPorPorcion = propiedadesAlimenticias[document.getElementById("alimento").value].mlPorPorcion;
+    const gramosPorTaza = propiedadesAlimenticias[document.getElementById("alimento").value].gramosPorTaza;
     const total = gramosPorPersona * cantPersonas; 
     const mlTotal = mlPorPorcion * cantPersonas;
+    const tazasTotal = total / gramosPorTaza;
     //mostrar resultado
     mostrarMensaje(`El total para ${cantPersonas} personas es: ${total} gramos y la cantidad de agua para preparar es: ${mlTotal} ml.`);
+    mostrarMensaje2(`${total} gramos equivale a ${tazasTotal} taza(s).`);
     //valores para los cuadritos
     document.getElementById("calorias").textContent = "Calorias: " + calcularCalorias(cantPersonas) + emojis().caloriasEmoji;
     document.getElementById("grasas").textContent = "Grasas: " + calcularGrasas(total) + emojis().grasasEmoji;
@@ -135,6 +143,10 @@ function formatearTiempo(tiempo) {
 //funcion para alerts
 function mostrarMensaje(mensaje) {
     document.getElementById("msg").innerHTML = mensaje;
+
+}
+function mostrarMensaje2(mensaje){
+    document.getElementById("msg2").innerHTML = mensaje;
 
 }
 //unicodes
